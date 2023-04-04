@@ -77,9 +77,9 @@ def main():
             elif(int(_select) == 2):
                 new_config = {
                     'LHOST'  : input(f'LHOST (current: {config["msfvenom"]["LHOST"]}) >'),
-                    'LPORT'  : input(f'LPORT (current: {config["msfconsole"]["LPORT"]}) >'),
-                    'payload': input(f'Payload (current: {config["msfconsole"]["payload"]}) >'),
-                    'format' : input(f'Format (current: {config["msfconsole"]["format"]}) >'),
+                    'LPORT'  : input(f'LPORT (current: {config["msfvenom"]["LPORT"]}) >'),
+                    'payload': input(f'Payload (current: {config["msfvenom"]["payload"]}) >'),
+                    'format' : input(f'Format (current: {config["msfvenom"]["format"]}) >'),
                     'output_filename' : input(f'Output filename (current: {config["msfvenom"]["output_filename"]}) >')
                 }
 
