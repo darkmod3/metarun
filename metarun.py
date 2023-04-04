@@ -62,19 +62,29 @@ def main():
             _select = input("select>")
             
             if(int(_select) == 1):
-                config["msfconsole"]["LHOST"]   = input("lhost>")
-                config["msfconsole"]["LPORT"]   = input("lport>")
-                config["msfconsole"]["handler"] = input("handler>")
-                config["msfconsole"]["payload"] = input("payload>")
+                new_config = {
+                    'LHOST'  : input(f'LHOST (current: {config["msfconsole"]["LHOST"]}) >'),
+                    'LPORT'  : input(f'LPORT (current: {config["msfconsole"]["LPORT"]}) >'),
+                    'handler': input(f'Handler (current: {config["msfconsole"]["handler"]}) >'),
+                    'payload': input(f'Payload (current: {config["msfconsole"]["payload"]}) >')
+                }
+
+                config['msfconsole'].update( (k,v) for k,v in new_config.items() if v != "")
+
                 with open('./metarun.conf','w') as configfile:
                     config.write(configfile)
 
             elif(int(_select) == 2):
-                config["msfvenom"]["LHOST"] = input("lhost>")
-                config["msfvenom"]["LPORT"] = input("lport>")
-                config["msfvenom"]["format"] = input("format>")
-                config["msfvenom"]["payload"] = input("payload>")
-                config["msfvenom"]["output_filename"] = input("output_filename>")
+                new_config = {
+                    'LHOST'  : input(f'LHOST (current: {config["msfvenom"]["LHOST"]}) >'),
+                    'LPORT'  : input(f'LPORT (current: {config["msfconsole"]["LPORT"]}) >'),
+                    'payload': input(f'Payload (current: {config["msfconsole"]["payload"]}) >'),
+                    'format' : input(f'Format (current: {config["msfconsole"]["format"]}) >'),
+                    'output_filename' : input(f'Output filename (current: {config["msfvenom"]["output_filename"]}) >')
+                }
+
+                config['msfvenom'].update( (k,v) for k,v in new_config.items() if v != "")
+
                 with open('./metarun.conf','w') as configfile:
                     config.write(configfile)
 
