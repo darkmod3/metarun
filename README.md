@@ -1,4 +1,4 @@
 # metarun
-Save configure metasploit
+Metarun - Auto save configure and run metasploit
 
 Usage: python metarun.py
